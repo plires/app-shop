@@ -1,8 +1,8 @@
-@extends('admin.layout.app')
+@extends('user.layout.app')
 
 <!-- Header Admin -->
 @section('header')
-  @include('admin.header.header')
+  @include('user.header.header')
 @endsection
 <!-- Header Admin end -->
 
@@ -11,12 +11,9 @@
   <div class="container">
     <div class="row">
     	<div class="col-md-12 text-center">
-    		<h1>StartUp</h1>
+    		<h1>USER</h1>
       </div>
-      <div class="col-md-6">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita dolores quae ut asperiores alias non architecto, cupiditate necessitatibus. Tempora hic veniam ad tenetur commodi incidunt amet mollitia eveniet animi ratione!
-      </div>
-      <div class="col-md-6">
+      <div class="col-md-6 offset-md-3">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita dolores quae ut asperiores alias non architecto, cupiditate necessitatibus. Tempora hic veniam ad tenetur commodi incidunt amet mollitia eveniet animi ratione!
       </div>
     </div>
@@ -26,6 +23,6 @@
 
 <!-- Footer Admin -->
 @section('footer')
-  @include('admin.footer.footer')
+  @include('user.footer.footer')
 @endsection
 <!-- Footer Admin end -->
