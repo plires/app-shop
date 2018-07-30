@@ -11,11 +11,18 @@
 |
 */
 
-Route::get('/admin', function () {
-    return view('admin.index');
+
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+	Route::get('/products', 'ProductController@index'); // listado de productos
+	Route::get('/products/create', 'ProductController@create'); // Muestra el formulario de registro
+	Route::post('/products', 'ProductController@store'); // Registra el nuevo producto
+	Route::get('/products/{id}/edit', 'ProductController@edit'); // Muestra el formulario de edicion del producto
+	Route::post('/products/{id}/edit', 'ProductController@update'); // Actualiza el producto
+	Route::delete('/products/{id}', 'ProductController@destroy'); // elimina el producto
 });
 
-Route::get('/', function () {
-    return view('user.index');
-});
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -28,13 +28,15 @@
 		<!-- Animate CSS -->
 		<link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
 
+		<!-- Font Anwesome CSS -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
 		<!-- Css para esta seccion -->
 		@yield('extra_css')
 
 		<!-- Custom CSS -->
-		<link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
-
-		<title>{{ config('app.name', 'Nombre de la app') }}</title>
+		<link rel="stylesheet" href="{{ asset('assets/css/admin-app.css') }}">
+			<title>{{ config('app.name') }} - @yield('title')</title>
 	</head>
 	
 	<body>

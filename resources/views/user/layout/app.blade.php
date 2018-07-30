@@ -41,13 +41,13 @@
 		<!-- Tag Manager Body -->
 		@include('includes.manager_body')
 	
-		<!-- Header Admin -->
+		<!-- Header User -->
 		@yield('header')
 
-		<!-- Content Admin -->
+		<!-- Content User -->
 		@yield('content')
 
-		<!-- Footer Admin -->
+		<!-- Footer User -->
 		@yield('footer')
 
 		<!-- jQuery primero, luego Popper.js, luego Bootstrap JS -->
