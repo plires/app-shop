@@ -45,7 +45,13 @@ class ProductController extends Controller
 
     	$product->save(); // Ejecuta un insert y agrega el producto.
 
-    	return redirect('/admin/products');
+        $message ="Se grabo papa!!";
+
+        if ($request->ajax() ) {
+            return $message;
+        }
+
+    	//return redirect('/admin/products');
     	
     }
 
@@ -87,11 +93,13 @@ class ProductController extends Controller
     	return redirect('/admin/products');
     }
 
-    public function destroy($id, Request $request)
+    public function delete($id, Request $request)
     {
-        Product::find($id)->delete();
+        $product = Product::find($id);
 
-        $message = 'El Producto fue borrado.';
+        $message = 'El Producto ' .$product->name. ' fue borrado.';
+
+        Product::find($id)->delete();
 
         if ($request->ajax() ) {
             return $message;

@@ -28,8 +28,7 @@ class CreateCartDetailsTable extends Migration
       $table->integer('quantity');
       $table->integer('discount'); // int 25%
 
-
-
+      $table->softDeletes();
       $table->timestamps();
     });
   }

@@ -15,6 +15,10 @@
       <div class="col-md-12 text-center">
         <h1>Listado de Productos</h1>
       </div>
+
+      <div id="message" class="fixed-top col-md-12 alert alert-success small" role="alert">
+      </div>
+            
     	<div class="col-md-12 text-right">
         <a href="{{ url('/admin/products/create') }}" type="button" class="btn btn-secondary btn-md mb-3">Agregar Producto&nbsp; <i class="fas fa-plus"></i></a>
       </div>
@@ -88,6 +92,7 @@
 
 <script>
    $(document).ready(function(){
+      $("#message").hide();
       $('.btn_delete_prod').click(function(e){
 
          e.preventDefault();
@@ -102,7 +107,13 @@
          row.fadeOut();
 
          $.post(url, data, function(result){
-            alert(result);            
+
+            $("#message").fadeIn();
+            $("#message").html(result);
+            setTimeout(function() {
+              $("#message").fadeOut(1500);
+            },2000);
+
          }).fail(function(){
             alert('Error en el servidor o el Producto tiene imagenes asosciadas. Intente mas tarde o elimine dichas imagenes.');
             row.fadeIn();

@@ -2,12 +2,14 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use App\Category;
 use App\ProductImage;
 
 class Product extends Model
 {
+	use SoftDeletes;
 
   //Product->category
 	public function category(){
