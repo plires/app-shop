@@ -10,6 +10,10 @@
 
 <!-- Content Admin -->
 @section('content')
+
+  <!-- Modal Confirmation -->
+  @include('admin.includes.confirmation')
+
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
@@ -52,7 +56,7 @@
                     <i class="fas fa-edit"></i>
                   </a>
 
-                  <button class="btn btn-primary btn_delete_prod" title="Eliminar Producto">
+                  <button class="btn btn-primary btn_delete_prod btn-confirm" title="Eliminar Producto">
                     <i class="fas fa-trash"></i>
                   </button>
 
@@ -91,35 +95,43 @@
 @section('scripts')
 
 <script>
-   $(document).ready(function(){
-      $("#message").hide();
-      $('.btn_delete_prod').click(function(e){
+  $(document).ready(function(){
 
-         e.preventDefault();
+    $("#message").hide();
 
-         var row = $(this).parents('tr');
-         var id = row.data('id');
-         var form = $('#form-delete');
+    $(".btn-confirm").on("click", function(){
+      $("#mi-modal").modal('show');
+    });
 
-         var url = form.attr('action').replace(':PRODUCT_ID', id) ;
-         var data = form.serialize();
+    $('.btn_delete_prod').click(function(){
 
-         row.fadeOut();
+      var row = $(this).parents('tr');
+      var id = row.data('id');
+      var form = $('#form-delete');
+      var url = form.attr('action').replace(':PRODUCT_ID', id) ;
+      var data = form.serialize();
 
-         $.post(url, data, function(result){
 
-            $("#message").fadeIn();
-            $("#message").html(result);
-            setTimeout(function() {
-              $("#message").fadeOut(1500);
-            },2000);
-
-         }).fail(function(){
-            alert('Error en el servidor o el Producto tiene imagenes asosciadas. Intente mas tarde o elimine dichas imagenes.');
-            row.fadeIn();
-         });
+      $("#modal-btn-si").on("click", function(){
+        row.fadeOut();
+        $.post(url, data, function(result){
+          $("#message").fadeIn();
+          $("#message").html(result);
+          setTimeout(function() {
+          $("#message").fadeOut(1500);
+          },2000);
+          $("#mi-modal").modal('hide');
+        });
       });
-   });
+
+      $("#modal-btn-no").on("click", function(){
+        console.log('se feee');
+        $("#mi-modal").modal('hide');
+      });
+
+    });
+
+  });
 </script>   
 
 @endsection

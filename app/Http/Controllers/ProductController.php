@@ -97,7 +97,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
 
-        $message = 'El Producto ' .$product->name. ' fue borrado.';
+        $message = 'El Producto <strong>' .$product->name. '</strong> fue borrado.';
 
         Product::find($id)->delete();
 
