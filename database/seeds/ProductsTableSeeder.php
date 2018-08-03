@@ -14,6 +14,7 @@ class ProductsTableSeeder extends Seeder
    */
   public function run()
   {
+
     //Una manera de poblar las tablas
   	//factory(Category::class, 5)->create();
   	//factory(Product::class, 50)->create();
