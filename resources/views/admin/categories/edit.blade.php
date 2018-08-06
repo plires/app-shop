@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 
-@section('title', 'Crear nuevo producto')
+@section('title', 'Editar categoría')
 
 <!-- Header Admin -->
 @section('header')
@@ -13,7 +13,7 @@
   <div class="container">
     <div class="row">
     	<div class="col-md-12 text-center">
-        <h1>Editar Producto {{ $product->name }}</h1>
+        <h1>Editar Categoría {{ $category->name }}</h1>
       </div>
       <div class="col-md-12">
 
@@ -26,50 +26,40 @@
             @endforeach
           </div>
         @endif
-        
-        <form method="post" action="{{ url('/admin/products/'.$product->id.'/edit') }}">
+
+        <form method="post" action="{{ url('/admin/categories/'.$category->id.'/edit') }}">
           {{ csrf_field() }}
 
           <div class="form-row">
             <div class="form-group col-md-4">
               <label for="name">Nombre</label>
-              <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" value="{{ old('name', $product->name) }}">
+              <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" value="{{ old('name', $category->name) }}">
             </div>
+
             <div class="form-group col-md-4">
-              <label for="category">Categoría</label>
-              <select id="category" name="category" class="form-control">
-                @foreach ($categories as $category)
-                  <option value="{{ $category->id }}" 
-                    @if ($category->id == old('category', $product->category_id))
-                      selected
-                    @endif>
-                    {{ $category->name }}
-                </option>
-                @endforeach
-            </select>
+              <label for="description">Descripción</label>
+              <input type="text" class="form-control" id="description" name="description" placeholder="Descripción" value="{{ old('description', $category->description) }}">
             </div>
+
             <div class="form-group col-md-4">
-              <label for="price">Precio</label>
-              <input type="number" step="0.01" class="form-control" id="price" name="price" placeholder="Precio"  value="{{ old('price', $product->price) }}">
+              <label for="slug">Slug</label>
+              <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug" value="{{ old('slug', $category->slug) }}">
+            </div>            
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-12 text-center">
+              <label for="image">Imágen</label>
+              <input type="text" class="form-control" id="image" name="image" placeholder="Imágen" value="{{ old('image') }}">
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="description">Descripcion</label>
-            <input type="text" class="form-control" id="description" name="description" placeholder="Descripción del producto"  value="{{ old('description', $product->description) }}">
-          </div>
-
-          <div class="form-group">
-            <label for="long_description">Descripción Larga</label>
-            <textarea class="form-control" id="long_description" name="long_description" rows="3" placeholder="Descripción Larga">{{ old('long_description', $product->long_description) }}</textarea>
-          </div>
-          
           <div class="text-center">
-            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-            <a href="{{ url('admin/products') }}" class="btn btn-secondary">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Registrar Categoría</button>
           </div>
-          
+
         </form>
+        
       </div>
     </div>
   </div>

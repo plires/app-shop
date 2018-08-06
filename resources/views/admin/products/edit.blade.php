@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 
-@section('title', 'Crear nuevo producto')
+@section('title', 'Editar producto')
 
 <!-- Header Admin -->
 @section('header')

@@ -11,45 +11,15 @@
 	      <li class="nav-item active">
 	        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
 	      </li>
-
-	      <!-- Productos -->
-	      <li class="nav-item dropdown">
-	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	          Productos
-	        </a>
-	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-	          <a class="dropdown-item" href="#">Agregar Productos</a>
-	          <a class="dropdown-item" href="#">Editar Productos</a>
-	          <a class="dropdown-item" href="#">Eliminar Productos</a>
-	        </div>
+	      <li class="nav-item">
+	        <a class="nav-link" href="{{ url('/admin/users/') }}">Usuarios <span class="sr-only">(current)</span></a>
 	      </li>
-	      <!-- Productos end -->
-
-	      <!-- Categorias -->
-	      <li class="nav-item dropdown">
-	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	          Categorias
-	        </a>
-	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-	          <a class="dropdown-item" href="#">Agregar Categorias</a>
-	          <a class="dropdown-item" href="#">Editar Categorias</a>
-	          <a class="dropdown-item" href="#">Eliminar Categorias</a>
-	        </div>
+	      <li class="nav-item">
+	        <a class="nav-link" href="{{ url('/admin/products/') }}">Productos <span class="sr-only">(current)</span></a>
 	      </li>
-	      <!-- Categorias end -->
-
-	      <!-- Usuarios -->
-	      <li class="nav-item dropdown">
-	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	          Usuarios
-	        </a>
-	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-	          <a class="dropdown-item" href="#">Agregar Usuarios</a>
-	          <a class="dropdown-item" href="#">Editar Usuarios</a>
-	          <a class="dropdown-item" href="#">Eliminar Usuarios</a>
-	        </div>
+	      <li class="nav-item">
+	        <a class="nav-link" href="{{ url('/admin/categories/') }}">Categorías <span class="sr-only">(current)</span></a>
 	      </li>
-	      <!-- Usuarios end -->
 
 	    </ul>
 	  </div>

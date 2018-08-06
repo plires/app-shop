@@ -36,6 +36,7 @@
                 <th scope="col">Descripción</th>
                 <th scope="col">Categoría</th>
                 <th scope="col">Precio</th>
+                <th scope="col">Imágen</th>
                 <th scope="col">Opciones</th>
               </tr>
             </thead>
@@ -48,10 +49,8 @@
                 <td class="col-lg-4 col-md-3">{{ $product->description }}</td>
                 <td class="col-lg-1 col-md-1">{{ $product->category ? $product->category->name : 'General' }}</td>
                 <td class="col-lg-1 col-md-1">{{ $product->price }}</td>
+                <td class="col-lg-1 col-md-1"><img src="https://picsum.photos/50/50/?random" alt=""></td>
                 <td class="col-lg-3 col-md-4">
-                  <a href="{{ url('/admin/products/'.$product->id) }}" class="btn btn-primary" title="Ver Producto">
-                    <i class="fas fa-eye"></i>
-                  </a>
                   <a href="{{ url('/admin/products/'.$product->id.'/edit') }}" class="btn btn-primary" title="Editar Producto">
                     <i class="fas fa-edit"></i>
                   </a>
@@ -125,7 +124,6 @@
       });
 
       $("#modal-btn-no").on("click", function(){
-        console.log('se feee');
         $("#mi-modal").modal('hide');
       });
 

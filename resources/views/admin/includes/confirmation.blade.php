@@ -7,7 +7,7 @@
         <h6 class="modal-title" id="myModalLabel">Confirmar</h6>
       </div>
       <div class="modal-body">
-        <p>Esta seguro de eliminar este producto?
+        <p>Esta seguro de eliminar este registro?
         Esta operación no se puede deshacer.</p>
       </div>
       <div class="modal-footer">

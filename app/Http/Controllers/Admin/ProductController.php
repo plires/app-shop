@@ -15,20 +15,15 @@ class ProductController extends Controller
         return view('admin.products.index')->with(compact('products')); // ver Listado de productos
     }
 
-    public function show($id)
+    public function create() 
     {
-        $product = Product::find($id);
-
-        return view('admin/products.show', compact('product'));
-    }
-
-    public function create() {
 
         $categories = Category::orderby('name')->get();
         return view('admin.products.create')->with(compact('categories')); // ver formulario de registro
     }
 
-    public function store(request $request) {
+    public function store(request $request) 
+    {
 
         $messages = [
             'name.required' => 'Debe ingresar un nombre para el producto.',
@@ -61,7 +56,8 @@ class ProductController extends Controller
         
     }
 
-    public function edit($id) {
+    public function edit($id) 
+    {
 
         $product = Product::find($id);
         $categories = Category::orderby('name')->get();
@@ -71,59 +67,60 @@ class ProductController extends Controller
         return view('admin.products.edit')->with(compact('product', 'categories')); // ver formulario de registro
     }
 
-    public function update(request $request, $id) {
+    public function update(request $request, $id) 
+    {
 
-        $messages = [
-            'name.required' => 'Debe ingresar un nombre para el producto.',
-            'name.max' => 'El campo nombre no puede exceder los 100 caracteres.',
-            'description.required' => 'Debe ingresar una descripcion para el producto.',
-            'description.max' => 'El campo descripción no puede exceder los 200 caracteres.',
-            'price.required' => 'Debe ingresar un precio para el producto.',
-            'price.numeric' => 'Ingrese un valor numerico para el campo precio (300.23).',
-            'price.min' => 'No se admiten valores negativos para el campo precio.'
-        ];
+      $messages = [
+          'name.required' => 'Debe ingresar un nombre para el producto.',
+          'name.max' => 'El campo nombre no puede exceder los 100 caracteres.',
+          'description.required' => 'Debe ingresar una descripcion para el producto.',
+          'description.max' => 'El campo descripción no puede exceder los 200 caracteres.',
+          'price.required' => 'Debe ingresar un precio para el producto.',
+          'price.numeric' => 'Ingrese un valor numerico para el campo precio (300.23).',
+          'price.min' => 'No se admiten valores negativos para el campo precio.'
+      ];
 
-        $rules =[
-            'name' => 'required|max:100',
-            'description' => 'required|max:200',
-            'price' => 'required|numeric|min:0'
-        ];
+      $rules =[
+          'name' => 'required|max:100',
+          'description' => 'required|max:200',
+          'price' => 'required|numeric|min:0'
+      ];
 
-        $this->validate($request, $rules, $messages);
+      $this->validate($request, $rules, $messages);
 
-        $product = Product::find($id);
+      $product = Product::find($id);
 
-        $product->name = $request->input('name');
-        $product->description = $request->input('description');
-        $product->long_description = $request->input('long_description');
-        $product->price = $request->input('price');
-        $product->category_id = $request->input('category');
+      $product->name = $request->input('name');
+      $product->description = $request->input('description');
+      $product->long_description = $request->input('long_description');
+      $product->price = $request->input('price');
+      $product->category_id = $request->input('category');
 
-        $product->save(); // Ejecuta un update y actualiza el producto.
+      $product->save(); // Ejecuta un update y actualiza el producto.
 
-        return redirect('/admin/products');
+      return redirect('/admin/products');
     }
 
     public function delete($id, Request $request)
     {
-        $product = Product::find($id);
+      $product = Product::find($id);
 
-        $message = 'El Producto <strong>' .$product->name. '</strong> fue borrado.';
+      $message = 'El Producto <strong>' .$product->name. '</strong> fue borrado.';
 
-        Product::find($id)->delete();
+      Product::find($id)->delete();
 
-        if ($request->ajax() ) {
-            return $message;
-        }
+      if ($request->ajax() ) {
+          return $message;
+      }
     }
 
     public function getCategoryNameAttribute()
     {
-        if ($this->category) {
-            return $this->category->name;
-        }
+      if ($this->category) {
+          return $this->category->name;
+      }
 
-        return 'General';
+      return 'General';
 
     }
 }
