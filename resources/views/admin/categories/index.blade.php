@@ -20,55 +20,56 @@
         <h1>Listado de Categorías</h1>
       </div>
 
-      <div id="message" class="fixed-top col-md-12 alert alert-success small" role="alert">
+      <div id="message" class="fixed-top col-md-12 alert alert-success" role="alert">
       </div>
             
     	<div class="col-md-12 text-right">
-        <a href="{{ url('/admin/categories/create') }}" type="button" class="btn btn-secondary btn-md mb-3">Agregar Categoría&nbsp; <i class="fas fa-plus"></i></a>
+        <a href="{{ url('/admin/categories/create') }}" type="button" class="btn btn-secondary btn-md mb-3">Agregar Categoría&nbsp; <i class="material-icons">add_circle</i></a>
       </div>
+      
+      <div class="col-md-12 text-right">
+      <div class="table-responsive-sm text-center">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Descripción</th>
+              <th scope="col">Image</th>
+              <th scope="col">Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
 
-        <div class="table-responsive-sm text-center">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Descripción</th>
-                <th scope="col">Image</th>
-                <th scope="col">Opciones</th>
-              </tr>
-            </thead>
-            <tbody>
+            @foreach ($categories as $category)
+            <tr data-id="{{ $category->id }}">
+              <th class="col-lg-1 col-md-1" scope="row">{{ $category->id }}</th>
+              <td class="col-lg-2 col-md-2">{{ $category->name }}</td>
+              <td class="col-lg-5 col-md-4">{{ $category->description }}</td>
+              <td class="col-lg-1 col-md-1"><img src="{{ $category->image }}" alt="" width="50"></td>
+              <td class="col-lg-3 col-md-4">
+                <a href="{{ url('/admin/categories/'.$category->id.'/edit') }}" class="btn btn-primary" title="Editar Producto">
+                  <i class="material-icons">edit</i>
+                </a>
 
-              @foreach ($categories as $category)
-              <tr data-id="{{ $category->id }}">
-                <th class="col-lg-1 col-md-1" scope="row">{{ $category->id }}</th>
-                <td class="col-lg-2 col-md-2">{{ $category->name }}</td>
-                <td class="col-lg-5 col-md-4">{{ $category->description }}</td>
-                <td class="col-lg-1 col-md-1"><img src="{{ $category->image }}" alt="" width="50"></td>
-                <td class="col-lg-3 col-md-4">
-                  <a href="{{ url('/admin/categories/'.$category->id.'/edit') }}" class="btn btn-primary" title="Editar Producto">
-                    <i class="fas fa-edit"></i>
-                  </a>
+                <button class="btn btn-primary btn_delete_prod btn-confirm" title="Eliminar Categoría">
+                  <i class="material-icons">delete</i>
+                </button>
 
-                  <button class="btn btn-primary btn_delete_prod btn-confirm" title="Eliminar Categoría">
-                    <i class="fas fa-trash"></i>
-                  </button>
+              </td>
+            </tr>
+            @endforeach
 
-                </td>
-              </tr>
-              @endforeach
+          </tbody>
+        </table>
 
-            </tbody>
-          </table>
-
-          <div class="text-center">
-            {{ $categories->links() }}
-          </div>
-
+        <div class="text-center">
+          {{ $categories->links() }}
         </div>
 
       </div>
+      </div>
+
     </div>
   </div>
 

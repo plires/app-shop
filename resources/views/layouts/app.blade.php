@@ -19,8 +19,8 @@
   <!-- Normalize CSS -->
   <link rel="stylesheet" href="{{ asset('assets/css/normalize.min.css') }}">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}" />
+  <!-- Material Kit CSS -->
+  <link href="{{ asset('assets/css/material-kit.css?v=2.0.4') }}" rel="stylesheet" />
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
@@ -51,10 +51,11 @@
   <!-- Footer User -->
   @yield('footer')
 
-  <!-- jQuery primero, luego Popper.js, luego Bootstrap JS -->
-  <script src="{{ asset('assets/js/jquery.min.js') }}" type="text/javascript" charset="utf-8"></script> 
-  <script src="{{ asset('assets/bootstrap/js/popper.min.js') }}" type="text/javascript"></script>
-  <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+  <!-- jQuery primero, luego Popper.js, luego Material Kit JS -->
+  <script src="{{ asset('assets/js/core/jquery.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('assets/js/core/popper.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('assets/js/core/bootstrap-material-design.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('assets/js/plugins/moment.min.js') }}"></script>
 
   <!-- Scripts para esta seccion -->
   @yield('scripts')

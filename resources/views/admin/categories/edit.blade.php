@@ -31,31 +31,55 @@
           {{ csrf_field() }}
 
           <div class="form-row">
-            <div class="form-group col-md-4">
-              <label for="name">Nombre</label>
-              <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" value="{{ old('name', $category->name) }}">
+
+            <div class="form-group col-md-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                      <i class="material-icons">menu</i>
+                  </span>
+                </div>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" value="{{ old('name', $category->name) }}">
+              </div>
             </div>
 
-            <div class="form-group col-md-4">
-              <label for="description">Descripción</label>
-              <input type="text" class="form-control" id="description" name="description" placeholder="Descripción" value="{{ old('description', $category->description) }}">
+            <div class="form-group col-md-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                      <i class="material-icons">description</i>
+                  </span>
+                </div>
+                <input type="text" class="form-control" id="description" name="description" placeholder="Descripción" value="{{ old('description', $category->description) }}">
+              </div>
             </div>
 
-            <div class="form-group col-md-4">
-              <label for="slug">Slug</label>
-              <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug" value="{{ old('slug', $category->slug) }}">
-            </div>            
+            <div class="form-group col-md-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                      <i class="material-icons">web</i>
+                  </span>
+                </div>
+                <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug" value="{{ old('slug', $category->slug) }}">
+              </div>
+            </div>
+
+            <div class="form-group col-md-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                      <i class="material-icons">add_photo_alternate</i>
+                  </span>
+                </div>
+                 <input type="text" class="form-control" id="image" name="image" placeholder="Imágen" value="{{ old('image', $category->image) }}">
+              </div>
+            </div>
+
           </div>
 
-          <div class="row">
-            <div class="form-group col-md-12 text-center">
-              <label for="image">Imágen</label>
-              <input type="text" class="form-control" id="image" name="image" placeholder="Imágen" value="{{ old('image') }}">
-            </div>
-          </div>
-
-          <div class="text-center">
-            <button type="submit" class="btn btn-primary">Registrar Categoría</button>
+          <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary"><i class="material-icons">save</i>&nbsp;&nbsp;Registrar Categoría</button>
           </div>
 
         </form>

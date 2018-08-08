@@ -19,8 +19,8 @@
 		<!-- Normalize CSS -->
 		<link rel="stylesheet" href="{{ asset('assets/css/normalize.min.css') }}">
 
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="{{ asset('assets/bootstrap/css/bootstrap.min.css') }}" />
+		<!-- Material Kit CSS -->
+  <link href="{{ asset('assets/css/material-kit.min.css') }}" rel="stylesheet" />
 
 		<!-- Google Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
@@ -29,7 +29,10 @@
 		<link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
 
 		<!-- Font Anwesome CSS -->
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+		<!--     Fonts and icons     -->
+	  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+	  
 
 		<!-- Css para esta seccion -->
 		@yield('extra_css')
@@ -52,10 +55,11 @@
 		<!-- Footer Admin -->
 		@yield('footer')
 
-		<!-- jQuery primero, luego Popper.js, luego Bootstrap JS -->
-		<script src="{{ asset('assets/js/jquery.min.js') }}" type="text/javascript" charset="utf-8"></script> 
-		<script src="{{ asset('assets/bootstrap/js/popper.min.js') }}" type="text/javascript"></script>
-		<script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+		<!-- jQuery primero, luego Popper.js, luego Material Kit JS -->
+  <script src="{{ asset('assets/js/core/jquery.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('assets/js/core/popper.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('assets/js/core/bootstrap-material-design.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('assets/js/plugins/moment.min.js') }}"></script>
 
 		<!-- Scripts para esta seccion -->
 		@yield('scripts')

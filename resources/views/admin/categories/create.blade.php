@@ -28,58 +28,74 @@
         @endif
       </div>
 
-      <div class="row">
+      <div class="col-md-12">
 
         <form method="post" action="{{ url('/admin/categories') }}">
           {{ csrf_field() }}
 
           <div class="form-row">
+
             <div class="form-group col-md-3">
-              <label for="name">Nombre</label>
-              <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" value="{{ old('name') }}">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                      <i class="material-icons">menu</i>
+                  </span>
+                </div>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" value="{{ old('name') }}">
+              </div>
             </div>
 
             <div class="form-group col-md-3">
-              <label for="description">Descripción</label>
-              <input type="text" class="form-control" id="description" name="description" placeholder="Descripción" value="{{ old('description') }}">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                      <i class="material-icons">description</i>
+                  </span>
+                </div>
+                <input type="text" class="form-control" id="description" name="description" placeholder="Descripción" value="{{ old('description') }}">
+              </div>
             </div>
 
             <div class="form-group col-md-3">
-              <label for="slug">Slug</label>
-              <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug" value="{{ old('slug') }}">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                      <i class="material-icons">web</i>
+                  </span>
+                </div>
+                <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug" value="{{ old('slug') }}">
+              </div>
             </div>
-            <div cla
-            ss="form-group col-md-3">
-              <label for="image">Imágen</label>
-              <input type="text" class="form-control" id="image" name="image" placeholder="Imágen" value="{{ old('image') }}">
+
+            <div class="form-group col-md-3">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                      <i class="material-icons">add_photo_alternate</i>
+                  </span>
+                </div>
+                 <input type="text" class="form-control" id="image" name="image" placeholder="Imágen" value="{{ old('image') }}">
+              </div>
             </div>
+
           </div>
 
-          <div class="text-center">
+          <div class="col-md-12 text-center">
             <button type="submit" class="btn btn-primary">Registrar Categoría</button>
           </div>
 
         </form>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <div class="list-group">
-          <button type="button" class="list-group-item list-group-item-action active">
-            Categorías Actuales
-          </button>
-
-          @foreach ($categories as $category)
-            <a href="#" class="list-group-item list-group-item-action">{{ $category->name }}
-              <span class="badge badge-primary badge-pill">{{ $pepe }}</span>
-            </a>
-
-          @endforeach
-
-        </div>
-      </div>
+    <div class="col-md-12 text-center">
+      <h3>Categorías Existentes</h3>
+      @foreach ($categories as $category)
+        <a href="#" class="btn btn-primary">
+          {{ $category->name }} <span class="badge badge-default badge_custom">{{ $pepe }}</span>
+        </a>
+      @endforeach
     </div>
-
 
   </div>
 @endsection

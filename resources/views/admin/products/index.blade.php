@@ -24,8 +24,10 @@
       </div>
             
     	<div class="col-md-12 text-right">
-        <a href="{{ url('/admin/products/create') }}" type="button" class="btn btn-secondary btn-md mb-3">Agregar Producto&nbsp; <i class="fas fa-plus"></i></a>
+        <a href="{{ url('/admin/products/create') }}" type="button" class="btn btn-secondary btn-md mb-3">Agregar Producto&nbsp; <i class="material-icons">add_circle</i></a>
       </div>
+
+      <div class="col-md-12">
 
         <div class="table-responsive-sm text-center">
           <table class="table table-striped">
@@ -46,17 +48,17 @@
               <tr data-id="{{ $product->id }}">
                 <th class="col-lg-1 col-md-1" scope="row">{{ $product->id }}</th>
                 <td class="col-lg-2 col-md-2">{{ $product->name }}</td>
-                <td class="col-lg-4 col-md-3">{{ $product->description }}</td>
+                <td class="col-lg-3 col-md-3">{{ $product->description }}</td>
                 <td class="col-lg-1 col-md-1">{{ $product->category ? $product->category->name : 'General' }}</td>
                 <td class="col-lg-1 col-md-1">{{ $product->price }}</td>
                 <td class="col-lg-1 col-md-1"><img src="https://picsum.photos/50/50/?random" alt=""></td>
                 <td class="col-lg-3 col-md-4">
                   <a href="{{ url('/admin/products/'.$product->id.'/edit') }}" class="btn btn-primary" title="Editar Producto">
-                    <i class="fas fa-edit"></i>
+                    <i class="material-icons">edit</i>
                   </a>
 
                   <button class="btn btn-primary btn_delete_prod btn-confirm" title="Eliminar Producto">
-                    <i class="fas fa-trash"></i>
+                    <i class="material-icons">delete</i>
                   </button>
 
                 </td>
@@ -66,13 +68,14 @@
             </tbody>
           </table>
 
-          <div class="text-center">
-            {{ $products->links() }}
-          </div>
-
         </div>
 
       </div>
+
+      <div class="col-md-12 text-center">
+        {{ $products->links() }}
+      </div>
+          
     </div>
   </div>
 
