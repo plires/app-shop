@@ -1,4 +1,9 @@
 body{padding-top: 100px;}
 
+/* Pagination */
+.pagination {margin-top: 30px;}
+li.page-item.active span.page-link a {color: #ffffff;}
+
 /* Custom */
 .badge_custom{ margin: 0; margin-left: 15px;}
+.pagination{ justify-content: center; }

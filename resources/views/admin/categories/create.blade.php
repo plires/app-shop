@@ -15,6 +15,9 @@
     	<div class="col-md-12 text-center">
         <h1>Nueva Categoría</h1>
       </div>
+    </div>
+
+    <div class="row">
       <div class="col-md-12">
 
         @if ($errors->any())
@@ -26,8 +29,11 @@
             @endforeach
           </div>
         @endif
-      </div>
 
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col-md-12">
 
         <form method="post" action="{{ url('/admin/categories') }}">
@@ -86,17 +92,25 @@
           </div>
 
         </form>
+
+      </div>
     </div>
 
-    <div class="col-md-12 text-center">
-      <h3>Categorías Existentes</h3>
-      @foreach ($categories as $category)
-        <a href="#" class="btn btn-primary">
-          {{ $category->name }} <span class="badge badge-default badge_custom">{{ $pepe }}</span>
-        </a>
-      @endforeach
-    </div>
+    <div class="row">
 
+      <div class="col-md-12 text-center">
+        <h3>Categorías Existentes</h3>
+      </div>
+
+      <div class="col-md-12">
+        @foreach ($categories as $category)
+          <a href="#" class="btn btn-primary">
+            {{ $category->name }} <span class="badge badge-default badge_custom">{{ $pepe }}</span>
+          </a>
+        @endforeach
+      </div>
+
+    </div>
   </div>
 @endsection
 <!-- Content Admin end -->

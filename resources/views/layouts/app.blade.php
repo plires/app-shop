@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/normalize.min.css') }}">
 
   <!-- Material Kit CSS -->
-  <link href="{{ asset('assets/css/material-kit.css?v=2.0.4') }}" rel="stylesheet" />
+  <link href="{{ asset('assets/css/material-kit.min.css') }}" rel="stylesheet" />
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
