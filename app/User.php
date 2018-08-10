@@ -5,11 +5,17 @@ namespace App;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\UserImage;
 
 class User extends Authenticatable
 {
     use Notifiable;
     use SoftDeletes;
+
+    //User->images
+    public function images(){
+        return $this->hasMany(UserImage::class);
+    }
 
     /**
      * The attributes that are mass assignable.
