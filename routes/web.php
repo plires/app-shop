@@ -41,6 +41,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 
 
 Auth::routes();
+Route::get('/test', 'HomeController@index');
 
 Route::get('/pago', 'PagoController@index');
 Route::get('/pagar', 'PagoController@generatePaymentGateway');
