@@ -18,8 +18,28 @@
 @section('content')
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+
+    <div class="col-md-8">
       <h1>Home - Dashboard</h1>
+    </div>
+
+    
+
+    <div style="position: fixed; top: 0; right: 0; z-index: 10; opacity: 0.9;" id="carro_content" class="col-md-4">
+      <div class="card" style="width: 20rem;">
+        <div class="card-body">
+          <h4 class="card-title">Tu Pedido</h4>
+          <h6 class="card-subtitle mb-2 text-muted">Productos</h6>
+          <ul style="list-style:none;" id="lista">
+          </ul>
+          <p class="card-text"></p>
+          {{-- <a href="#0" class="card-link">Card link</a>
+          <a href="#0" class="card-link">Another link</a> --}}
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
 
       @if (session('status'))
         <div class="alert alert-success" role="alert">
@@ -51,6 +71,39 @@
         <div>Nam dui erat, auctor a, dignissim quis.</div>
       </div>
 
+      <form id="formulario">
+        <select name="select" id="select">
+          <option>Opcion 1</option>
+          <option>Opcion 2</option>
+          <option>Opcion 3</option>
+        </select>
+        <button type="button" name="enviar" id="enviar" class="btn btn-primary">Primary</button>
+      </form>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+      
+
     </div>
   </div>
 </div>
@@ -70,6 +123,22 @@
   <script type="text/javascript">
     $( "#tabs" ).tabs();
     $( "#accordion" ).accordion();
+
+      var content = $('#carro_content');
+      var ul = $('#lista');
+      content.hide();
+
+
+    $('#enviar').click(function(){
+
+      var parrafo = 'hola';
+      content.fadeIn(1000);
+      ul.append('<li>'+ parrafo +'</li>');
+      //console.log(div);
+
+    });
+
+
   </script>
 
 @endsection
