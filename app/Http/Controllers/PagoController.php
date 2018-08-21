@@ -56,12 +56,13 @@ class PagoController extends Controller
 			      'street_name' => 'Street',
 			      'street_number' => 123,
 			    ),
-			    "back_urls": {
-						"success": "http://167.99.11.226/success",
-						"failure": "http://www.failure.com",
-						"pending": "http://www.pending.com"
-					},
-			    "notification_url": "http://167.99.11.226/escucha_post",
+			    'back_urls' =>
+			    array (
+						'success' => 'http://167.99.11.226/success',
+						'failure' => 'http://www.failure.com',
+						'pending' => 'http://www.pending.com'
+					),
+			    'notification_url' => 'http://167.99.11.226/escucha_post',
 			  ),
 
 			  
