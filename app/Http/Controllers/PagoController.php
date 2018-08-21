@@ -118,6 +118,7 @@ class PagoController extends Controller
 				print_r("Not paid yet. Do not release your item.");
 			}
 		}
+		return response('OK', 201);
 	}
 
 
