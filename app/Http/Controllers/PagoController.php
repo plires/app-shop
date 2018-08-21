@@ -123,8 +123,16 @@ class PagoController extends Controller
 
 	public function ipnNotification(Request $request)
 	{
-	    return header("HTTP/1.1 200 OK");
- 			return \Response::json(['HTTP/1.1 200 OK'], 200);
+		$mp = new MP("2664232087964621", "hrG1pYSukzesHP4UrYlUU7FulvzgpTP4");
+		if (!isset($_GET["id"]) || !ctype_digit($_GET["id"])) {
+			http_response_code(400);
+			return;
+		}
+		$payment_info = $mp->get_payment_info($_GET["id"]);
+		if ($payment_info["status"] == 200) {
+			print_r($payment_info["response"]);
+		}
+
 	}
 
 }
