@@ -118,7 +118,6 @@ class PagoController extends Controller
 				print_r("Not paid yet. Do not release your item.");
 			}
 		}
-		return response('OK', 201);
 	}
 
 
@@ -140,7 +139,7 @@ class PagoController extends Controller
 	        // get order and link the notification id
 	        $external_reference_id = $merchant_order_info["response"]["external_reference"];
 	       //here you must clear unnecessary data in external reference
-	       ...
+	       print_r("algo hace aca.");
 	       // get order
 	        $order = Order::findOrFail($external_reference_id);
 	        // link notification id
