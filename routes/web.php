@@ -45,5 +45,5 @@ Route::get('/test', 'HomeController@index');
 
 Route::get('/pago', 'PagoController@index');
 Route::get('/pagar', 'PagoController@generatePaymentGateway');
-Route::get('/escucha', 'PagoController@escucha');
-Route::post('/escucha_post', 'PagoController@escucha');
+Route::get('/escucha', 'PagoController@ipnNotification');
+Route::post('/escucha_post', 'PagoController@ipnNotification');
