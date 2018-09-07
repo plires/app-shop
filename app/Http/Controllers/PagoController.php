@@ -64,18 +64,30 @@ class PagoController extends Controller
 					),
 			    'notification_url' => 'http://167.99.11.226/escucha_post',
 			  ),
+			  	'shipments' => array(
+					'mode' => 'me2',
+					'dimensions' => '30x30x30,500',
+					'local_pickup' => true,
+					'free_methods' => array(
+						array(
+							'id' => 73328
+						)
+					),
+					'default_shipping_method' => 73328,
+					'zip_code' => '5700'
+				)
 
 			  
-			  'shipments' => 
-			  array (
-			    'receiver_address' => 
-			    array (
-			      'street_number' => 123,
-			      'street_name' => 'Street',
-			      'floor' => 4,
-			      'apartment' => 'C',
-			    ),
-			  )
+			  // 'shipments' => 
+			  // array (
+			  //   'receiver_address' => 
+			  //   array (
+			  //     'street_number' => 123,
+			  //     'street_name' => 'Street',
+			  //     'floor' => 4,
+			  //     'apartment' => 'C',
+			  //   ),
+			  // )
 			  
 			);
 

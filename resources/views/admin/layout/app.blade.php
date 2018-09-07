@@ -1,68 +1,129 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
-	<head>
-		<!-- Tag Manager Head -->
-		@include('includes.manager_head')
 
-  	<!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+<head>
+  <!-- Tag Manager Head -->
+  @include('includes.manager_head')
 
-    <!-- Required meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="description app">
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
-		<!-- Favicons -->
-		<link rel="apple-touch-icon" href="{{ url('apple-icon.png') }}">
-		<link rel="icon" href="{{ url('favicon.png') }}">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-		<!-- Normalize CSS -->
-		<link rel="stylesheet" href="{{ asset('assets/css/normalize.min.css') }}">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="{{ url('apple-icon.png') }}">
+  <link rel="icon" href="{{ url('favicon.png') }}">
+  
+  <title>{{ config('app.name') }} - @yield('title')</title>
+  
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{{ asset('adminlte/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
 
-		<!-- Material Kit CSS -->
-  	<link href="{{ asset('assets/css/material-kit.min.css') }}" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{ asset('adminlte/bower_components/font-awesome/css/font-awesome.min.css') }}">
 
-		<!-- Google Fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="{{ asset('adminlte/bower_components/Ionicons/css/ionicons.min.css') }}">
 
-		<!-- Animate CSS -->
-		<link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ asset('adminlte/css/AdminLTE.min.css') }}">
 
-		<!-- Font Anwesome CSS -->
-		<!--     Fonts and icons     -->
-	  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-	  
+  <!-- Se debe cambiar la hoja de estilos y tambien el atributo de la
+    etiqueta body para que los cambios surtan efecto -->
+  <link rel="stylesheet" href="{{ asset('adminlte/css/skins/skin-blue.min.css') }}">
 
-		<!-- Css para esta seccion -->
-		@yield('extra_css')
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ asset('adminlte/css/admin.app.css') }}">
 
-		<!-- Custom CSS -->
-		<link rel="stylesheet" href="{{ asset('assets/css/admin-app.css') }}">
-			<title>{{ config('app.name') }} - @yield('title')</title>
-	</head>
-	
-	<body>
-		<!-- Tag Manager Body -->
-		@include('includes.manager_body')
-	
-		<!-- Header Admin -->
-		@yield('header')
+  <!-- Google Font -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <!-- Css para esta seccion -->
+  @yield('extra_css')
+    
+</head>
+<!--
+BODY TAG OPTIONS:
+=================
+Aplicar una o más de las siguientes clases para obtener el
+efecto deseado
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="hold-transition skin-blue layout-boxed">
+  <!-- Tag Manager Body -->
+  @include('includes.manager_body')
 
-		<!-- Content Admin -->
-		@yield('content')
+  <div class="wrapper">
 
-		<!-- Footer Admin -->
-		@yield('footer')
+    <!-- Header -->
+    @yield('header')
+    <!-- Header end -->
 
-		<!-- jQuery primero, luego Popper.js, luego Material Kit JS -->
-  <script src="{{ asset('assets/js/core/jquery.min.js') }}" type="text/javascript"></script>
-  <script src="{{ asset('assets/js/core/popper.min.js') }}" type="text/javascript"></script>
-  <script src="{{ asset('assets/js/core/bootstrap-material-design.min.js') }}" type="text/javascript"></script>
-  <script src="{{ asset('assets/js/plugins/moment.min.js') }}"></script>
+    <!-- Aside -->
+    @yield('aside')
+    <!-- Aside end -->
 
-		<!-- Scripts para esta seccion -->
-		@yield('scripts')
 
-	</body>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h2>
+          Page Header
+          <small>Optional description</small>
+        </h2>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+          <li class="active">Here</li>
+        </ol>
+      </section>
+
+      <!-- Main content -->
+      <section class="content container-fluid">
+
+        @yield('content')
+
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Footer Admin -->
+    @yield('footer')
+
+    <!-- Footer Admin -->
+    @yield('control-aside')
+    
+    
+  </div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 3 -->
+<script src="{{ asset('adminlte/bower_components/jquery/dist/jquery.min.js') }}"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="{{ asset('adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('adminlte/js/adminlte.min.js') }}"></script>
+
+<!-- Scripts para esta seccion -->
+@yield('scripts')
+
+</body>
 </html>

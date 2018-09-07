@@ -38,10 +38,16 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 	Route::delete('/products/{id}', 'ProductController@delete'); // elimina el producto
 });
 
+// Route::get('/administration', function(){
+// 	$products = App\Product::paginate(10);
+//   return view('administration.index')->with(compact('products')); // ver Listado de productos
+// });
+
 
 
 Auth::routes();
-Route::get('/test', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
+Route::get('/test', 'HomeController@test');
 Route::get('/success', 'HomeController@url');
 //Route::get('/failure', 'HomeController@index');
 //Route::get('/pending', 'HomeController@index');
