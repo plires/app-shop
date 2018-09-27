@@ -1,0 +1,13 @@
+/*body { background-color: #eee; }*/
+body { background-color: #ffffff; }
+header { position: fixed; z-index: 10; width: 100%; box-shadow:1px 1px 3px 1px #58595B;  }
+.carousel{ margin-top: 65px; }
+.navbar {margin: 0;}
+
+.transition{
+  -webkit-transition: all ease-in-out .3s; /* Safari */
+	transition: all ease-in-out .3s;
+}
+
+.card img:hover { opacity: 0.8; }
+.card { margin-top: 0; }
