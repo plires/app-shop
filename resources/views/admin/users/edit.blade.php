@@ -4,9 +4,15 @@
 
 <!-- Header Admin -->
 @section('header')
-  @include('admin.header.header')
+  @include('admin.includes.header')
 @endsection
 <!-- Header Admin end -->
+
+<!-- Aside Admin -->
+@section('aside')
+  @include('admin.includes.aside')
+@endsection
+<!-- Aside Admin end -->
 
 <!-- Content Admin -->
 @section('content')
@@ -112,6 +118,6 @@
 
 <!-- Footer Admin -->
 @section('footer')
-  @include('admin.footer.footer')
+  @include('admin.includes.footer')
 @endsection
 <!-- Footer Admin end -->

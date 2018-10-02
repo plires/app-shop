@@ -4,9 +4,15 @@
 
 <!-- Header Admin -->
 @section('header')
-  @include('admin.header.header')
+  @include('admin.includes.header')
 @endsection
 <!-- Header Admin end -->
+
+<!-- Aside Admin -->
+@section('aside')
+  @include('admin.includes.aside')
+@endsection
+<!-- Aside Admin end -->
 
 <!-- Content Admin -->
 @section('content')
@@ -28,8 +34,8 @@
     </div>
 
     <div class="row">            
-    	<div class="col-md-12 text-right">
-        <a href="{{ url('/admin/categories/create') }}" type="button" class="btn btn-secondary btn-md mb-3">Agregar Categoría&nbsp; <i class="material-icons">add_circle</i></a>
+      <div class="col-md-12 text-right">
+        <a href="{{ url('/admin/categories/create') }}" type="button" class="btn btn-info btn-lg mb-2">Agregar Producto&nbsp; <i class="fa fa-plus"></i></a>
       </div>
     </div>
 
@@ -55,13 +61,11 @@
                 <td class="col-lg-5 col-md-4">{{ $category->description }}</td>
                 <td class="col-lg-1 col-md-1"><img src="{{ $category->image }}" alt="" width="50"></td>
                 <td class="col-lg-3 col-md-4">
-                  <a href="{{ url('/admin/categories/'.$category->id.'/edit') }}" class="btn btn-success" title="Editar Producto">
-                    <i class="material-icons">edit</i>
+                  <a href="{{ url('/admin/categories/'.$category->id.'/edit') }}" class="btn btn-success btn-flat" title="Editar Producto">
+                    <i class="fa fa-edit"></i>
                   </a>
 
-                  <button class="btn btn-danger btn_delete_prod btn-confirm" title="Eliminar Categoría">
-                    <i class="material-icons">delete</i>
-                  </button>
+                  <button type="button" rel="tooltip" class="btn btn-danger btn-flat btn_delete_prod btn-confirm" title="Eliminar Categoría"><i class="fa fa-trash"></i></button>
 
                 </td>
               </tr>
@@ -93,7 +97,7 @@
 
 <!-- Footer Admin -->
 @section('footer')
-  @include('admin.footer.footer')
+  @include('admin.includes.footer')
 @endsection
 <!-- Footer Admin end -->
 
