@@ -23,8 +23,6 @@
       <h1>Home - Dashboard</h1>
     </div>
 
-    
-
     <div style="position: fixed; top: 0; right: 0; z-index: 10; opacity: 0.9;" id="carro_content" class="col-md-4">
       <div class="card" style="width: 20rem;">
         <div class="card-body">

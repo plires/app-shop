@@ -36,6 +36,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 	Route::get('/products/{id}/edit', 'ProductController@edit'); // Muestra el formulario de edicion del producto
 	Route::post('/products/{id}/edit', 'ProductController@update'); // Actualiza el producto
 	Route::delete('/products/{id}', 'ProductController@delete'); // elimina el producto
+
+	// Rutas para las imagenes del producto
+	Route::get('/products/{id}/images', 'ImageController@index'); // listado de las imagenes del productos
+	Route::post('/products/{id}/images', 'ImageController@store'); // Registra la nueva imagene del producto
+	Route::delete('/products/{id}/images', 'ImageController@delete'); // elimina la imagen del producto
+	Route::get('/products/{id}/images/select/{image}', 'ImageController@select'); // destacar imagenes de productos
+
 });
 
 // Route::get('/administration', function(){
@@ -43,10 +50,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 //   return view('administration.index')->with(compact('products')); // ver Listado de productos
 // });
 
-
-
 Auth::routes();
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 Route::get('/test', 'HomeController@test');
 Route::get('/success', 'HomeController@url');
 //Route::get('/failure', 'HomeController@index');

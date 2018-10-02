@@ -61,8 +61,13 @@
               <td>{{ $product->category->name }}</td>
               <td>
                 <div class="btn-group">
-                  <a href="{{ url('/admin/products/'.$product->id.'/edit') }}" class="btn btn-success btn-flat"><i class="fa fa-edit"></i></a>
-                  <button type="button" rel="tooltip" class="btn btn-danger btn-flat btn_delete_prod btn-confirm"><i class="fa fa-trash"></i></button>
+                  <a href="{{ url('/admin/products/'.$product->id.'/edit') }}" title="Editar producto" class="btn btn-success btn-flat">
+                    <i class="fa fa-edit"></i>
+                  </a>
+                  <a href="{{ url('/admin/products/'.$product->id.'/images') }}" title="Imágenes del producto" class="btn btn-warning btn-flat">
+                    <i class="fa fa-image"></i>
+                  </a>
+                  <button type="button" rel="tooltip" title="Eliminar producto" class="btn btn-danger btn-flat btn_delete_prod btn-confirm"><i class="fa fa-trash"></i></button>
                 </div>
               </td>
           </tr>

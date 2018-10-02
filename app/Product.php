@@ -21,4 +21,24 @@ class Product extends Model
 		return $this->hasMany(ProductImage::class);
 	}
 
+	// campo controlado para la imagen destacada del producto
+	public function getFeaturedImageUrlAttribute() {
+
+		// si existe una imagen destacada la seleccionamos
+		$featuredImage = $this->images()->where('featured', true)->first();
+
+		// si NO existe una imagen destacada seleccionamos la primera
+		if (!$featuredImage){
+			$featuredImage = $this->images()->first();
+		}
+
+		if ($featuredImage){
+			return $featuredImage->url;
+		}
+
+		// si no existe la imagen para el producto seleccionamos la imagen por default
+		return 'images/products/no-image.gif';
+
+	}
+
 }

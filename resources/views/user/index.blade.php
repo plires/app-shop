@@ -84,60 +84,25 @@
         <h3>Productos Destacados</h3>
       </div>
 
-      <div class="col-lg-3 col-sm-6 text-center">
-        <a href="#">
-          <div class="card">
-            <img class="card-img-top transition" src="https://lorempixel.com/800/450/?71465" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="">Sillón Wolf Alto</h4>
-              <p class="m-0"><strong>$6255</strong> (Contado)</p>
-              <p class="card-text">12 Cuotas de $755.83</p>
-              <button type="button" class="btn btn-primary">Comprar</button>
+      @foreach ($products as $product)
+        <div class="col-lg-3 col-sm-6 text-center">
+          <a href="#">
+            <div class="card">
+              <img class="card-img-top transition" src="{{ $product->featured_image_url }}" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="">{{ $product->name }}</h4>
+                <h6 class="">Categoría: {{ $product->category->name }}</h6>
+                <p class="m-0"><strong>$ {{ $product->price }}</strong> (Contado)</p>
+                <p class="card-text">12 Cuotas de $755.83</p>
+                <button type="button" class="btn btn-primary">Comprar</button>
+              </div>
             </div>
-          </div>
-        </a>
-      </div>
+          </a>
+        </div>
+      @endforeach
 
-      <div class="col-lg-3 col-sm-6 text-center">
-        <a href="#">
-          <div class="card">
-            <img class="card-img-top transition" src="https://lorempixel.com/800/450/?71845" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="">Sillón Wolf Alto</h4>
-              <p class="m-0"><strong>$6255</strong> (Contado)</p>
-              <p class="card-text">12 Cuotas de $755.83</p>
-              <button type="button" class="btn btn-primary">Comprar</button>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <div class="col-lg-3 col-sm-6 text-center">
-        <a href="#">
-          <div class="card">
-            <img class="card-img-top transition" src="https://lorempixel.com/800/450/?71745" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="">Sillón Wolf Alto</h4>
-              <p class="m-0"><strong>$6255</strong> (Contado)</p>
-              <p class="card-text">12 Cuotas de $755.83</p>
-              <button type="button" class="btn btn-primary">Comprar</button>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <div class="col-lg-3 col-sm-6 text-center">
-        <a href="#">
-          <div class="card">
-            <img class="card-img-top transition" src="https://lorempixel.com/800/450/?76565" alt="Card image cap">
-            <div class="card-body">
-              <h4 class="">Sillón Wolf Alto</h4>
-              <p class="m-0"><strong>$6255</strong> (Contado)</p>
-              <p class="card-text">12 Cuotas de $755.83</p>
-              <button type="button" class="btn btn-primary">Comprar</button>
-            </div>
-          </div>
-        </a>
+      <div class="col-md-12">
+        {{ $products->links() }}
       </div>
 
     </div>
