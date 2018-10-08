@@ -84,13 +84,12 @@
         <h3>Productos Destacados</h3>
       </div>
 
-      @foreach ($products as $product)
+      {{-- @foreach ($products as $product)
         <div class="col-lg-3 col-sm-6 text-center">
           <a href="#">
             <div class="card">
               <img class="card-img-top transition" src="{{ $product->featured_image_url }}" alt="Card image cap">
               <div class="card-body">
-                <a href="{{ url('products/'. $product->id) }}" class="btn btn-primary" >Detalle del Producto</a>
                 <h4 class="">{{ $product->name }}</h4>
                 <h6 class="">Categoría: {{ $product->category->name }}</h6>
                 <p class="m-0"><strong>$ {{ $product->price }}</strong> (Contado)</p>
@@ -100,36 +99,16 @@
             </div>
           </a>
         </div>
-      @endforeach
+      @endforeach --}}
 
-      <div class="col-md-12">
+      {{-- <div class="col-md-12">
         {{ $products->links() }}
-      </div>
+      </div> --}}
 
     </div>
   </div>
 
   <!-- Productos Destacados end -->
-
-  <!-- Modal -->
-  <div class="modal fade" id="detailProduct" tabindex="-1" role="dialog" aria-labelledby="detailProductLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="detailProductLabel">Detalle del Producto</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
 @endsection
 <!-- Content User end -->

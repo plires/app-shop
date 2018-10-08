@@ -12,10 +12,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $products = Product::paginate(16);
+      $products = Product::paginate(9);
 
       return view('user.index')->with(compact('products'));
     }
