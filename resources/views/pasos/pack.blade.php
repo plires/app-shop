@@ -53,14 +53,14 @@
       <div class="col-md-4 text-center">
         <div class="card text-center" style="width: 20rem;">
           <div class="card-body">
-            <h2 class="card-title">SMALL</h2>
+            <h2 class="card-title">MEDIUM</h2>
             <h3>$599</h3>
             <h3>3 Piezas</h3>
 
             <form method="post" action="{{ url('/choose/') }}">
               {{ csrf_field() }}
               <input type="hidden" name="zone" value="{{ $zone }}">
-              <input type="hidden" name="pack" value="Small">
+              <input type="hidden" name="pack" value="Medium">
 
               <div class="form-check form-check-radio">
                 <label class="form-check-label">

@@ -43,6 +43,7 @@
             <h5>Zona: <span>{{ $zone }}</span></h5>
             <h5>Pack: <span>{{ $pack }}</span></h5>
             <h5>Frecuencia de Entrega: <span>{{ $frecuency }}</span></h5>
+            <span id="countPieces"></span>
 
           </div>
         </div>
@@ -56,8 +57,8 @@
           <div class="card text-center" style="width: 20rem;">
             <div class="card-body">
               <h4 class="card-title">{{ $product->name }}</h4>
-              <button class="btn btn-primary btn-sm">-</button>
-              <button class="btn btn-primary btn-sm">+</button>
+              <button class="btn btn-primary btn-sm resta">-</button>
+              <button data-id="{{ $product->id }}" class="btn btn-primary btn-sm suma">+</button>
             </div>
           </div>
         </div>
@@ -90,3 +91,45 @@
   @include('user.footer.footer')
 @endsection
 <!-- Footer User end -->
+
+@section('scripts')
+<script>
+
+  var maxPiece = <?php echo $maxPiece;?>;
+  var countPiece = 0;
+
+  // console.log(foo);
+
+  
+  $('.resta').click(function(){
+    if (countPiece == 0) {
+      alert('Llego al minimo');
+    } else {
+      countPiece = countPiece-1;
+      $("<span>"+ countPiece +"</span>").appendTo("#countPieces");
+      console.log(countPiece);
+    }
+  });
+
+  $('.suma').click(function(){
+    
+    if (countPiece == maxPiece) {
+      alert('Llego al maximo');
+    } else {
+      countPiece = countPiece+1;
+      $("<span>"+ countPiece +"</span>").appendTo("#countPieces");
+      console.log(countPiece);
+    }
+
+  });
+
+
+</script>
+@endsection
+
+
+
+
+
+
+
