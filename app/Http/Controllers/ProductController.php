@@ -12,4 +12,29 @@ class ProductController extends Controller
     	$product = Product::find($id);
     	return view('products.show')->with(compact('product'));
     }
+
+    public function getProduct(Request $request, $id)
+    {
+
+    	//session()->pull('productId');
+
+
+
+    	$request->session()->push('productId', $id);
+
+    	if ($request->session()->has('productId')) {
+		    echo $request->session()->get('productId'); // si existe imprime el valor de la variable mensaje
+			}
+
+
+    	//dd($data);
+
+	    //$message = 'El producto <strong>' .$product->name. '</strong> fue añadido al carrito de compras.';
+
+	    if ($request->ajax() ) {
+	        return;
+	    }
+    }
+
+
 }

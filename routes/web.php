@@ -52,9 +52,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 
 Auth::routes();
 Route::get('/products/{id}', 'ProductController@show'); // Controlador para todos los usuarios
+Route::post('/products/{id}', 'ProductController@getProduct'); // Controlador para todos los usuarios
 
 
 /* PRUEBA DE PASOS */
+Route::post('/cart', 'cartDetailController@store'); // Agrega un cartDetail 
+
 Route::get('/zone', 'ZoneController@index'); // Paso 1 - Selecciona Zona.
 Route::post('/pack', 'ZoneController@pack'); // Paso 2 - Selecciona Zona.
 Route::post('/choose', 'ZoneController@choose'); // Paso 2 - Selecciona Zona.

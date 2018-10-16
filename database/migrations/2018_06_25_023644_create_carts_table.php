@@ -16,8 +16,8 @@ class CreateCartsTable extends Migration
     Schema::create('carts', function (Blueprint $table) {
       $table->increments('id');
 
-      $table->string('order_date');
-      $table->date('arrived_date');
+      $table->string('order_date')->nullable();
+      $table->date('arrived_date')->nullable();
       $table->date('status');
       //FK
       $table->Integer('status_id')->unsigned();

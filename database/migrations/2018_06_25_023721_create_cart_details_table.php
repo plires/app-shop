@@ -26,7 +26,7 @@ class CreateCartDetailsTable extends Migration
       
       $table->float('price');
       $table->integer('quantity');
-      $table->integer('discount'); // int 25%
+      $table->integer('discount')->default(0); // int 25%
 
       $table->softDeletes();
       $table->timestamps();

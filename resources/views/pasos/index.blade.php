@@ -43,7 +43,7 @@
 
             <form method="post" action="{{ url('/pack/') }}">
               {{ csrf_field() }}
-              <input type="hidden" name="acassuso" value="Acassuso">
+              <input type="hidden" name="zone" value="San Fernando">
               <button type="submit" class="btn btn-primary">Esta es mi Zona</button>
             </form>
 

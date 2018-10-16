@@ -21,6 +21,11 @@
     </div>
 
     <div class="row">
+      <div id="message" class="fixed-top col-md-12 alert alert-success" role="alert">
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col-md-12 text-center mb-5">
         <div>
           <button class="btn btn-success btn-fab btn-round">1</button>
@@ -55,7 +60,7 @@
       @foreach($products as $product)
         <div class="col-md-4 text-center">
           <div class="card text-center" style="width: 20rem;">
-            <div class="card-body">
+            <div data-id="{{ $product->id }}" class="card-body">
               <h4 class="card-title">{{ $product->name }}</h4>
               <button class="btn btn-primary btn-sm resta">-</button>
               <button data-id="{{ $product->id }}" class="btn btn-primary btn-sm suma">+</button>
@@ -83,6 +88,11 @@
   <br>
   <br>
 
+  <form action="{{ url('/products/:PRODUCT_ID/') }}" method="POST" id="form-products">
+      <input name="_method" type="hidden">
+      {{ csrf_field() }}
+   </form>
+
 @endsection
 <!-- Content User end -->
 
@@ -97,11 +107,27 @@
 
   var maxPiece = <?php echo $maxPiece;?>;
   var countPiece = 0;
+  var productId = '';
 
-  // console.log(foo);
+  $("#message").hide();
+
+
+  // $("#modal-btn-si").on("click", function(){
+  //   row.fadeOut();
+  //   $.post(url, data, function(result){
+  //     $("#message").fadeIn();
+  //     $("#message").html(result);
+  //     setTimeout(function() {
+  //     $("#message").fadeOut(1500);
+  //     },2000);
+  //     $("#mi-modal").modal('hide');
+  //   });
+  // });
 
   
   $('.resta').click(function(){
+    productId = $(this).parent().attr('data-id');
+
     if (countPiece == 0) {
       alert('Llego al minimo');
     } else {
@@ -112,13 +138,27 @@
   });
 
   $('.suma').click(function(){
+
+    productId = $(this).parent().attr('data-id');
+    // var form = $('#form-products');
+    // var url = form.attr('action').replace(':PRODUCT_ID', productId) ;
+    // var data = form.serialize();
+
+    // $.post(url, data, function(result){
+    //   $("#message").fadeIn();
+    //   $("#message").html(result);
+    //   setTimeout(function() {
+    //   $("#message").fadeOut(1500);
+    //   },2000);
+    // });
+    
     
     if (countPiece == maxPiece) {
       alert('Llego al maximo');
     } else {
       countPiece = countPiece+1;
       $("<span>"+ countPiece +"</span>").appendTo("#countPieces");
-      console.log(countPiece);
+      //console.log(countPiece);
     }
 
   });
