@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Product;
 use Auth;
 
@@ -10,48 +11,71 @@ class ZoneController extends Controller
 {
     public function index()
     {
-    	return view('pasos.index');
+      // Si no existe el array cart, lo creamos
+      if (!session()->has('cart')) {
+        session()->put('cart', []);
+      }
+
+      return view('pasos.index');
     }
 
     public function pack(request $request)
     {
-      // borro variable de sesion
-      $request->session()->pull('zone');
       
       $zone = $request->input('zone');
 
-      $request->session()->push('zone', $zone);
-    	return view('pasos.pack')->with(compact('zone'));
+      $request->session()->put('zone', $zone);
+    	return view('pasos.pack');
+    }
+
+    public function packGet()
+    {
+      return view('pasos.pack');
+    }
+
+    public function chooseGet()
+    {
+      $products = Product::all();
+      return view('pasos.choose')->with(compact('products'));
     }
 
     public function choose(request $request)
     {
-
-      dd(Auth::user(), Auth::Guest());
-      // borro variable de sesion
-      $request->session()->pull('pack');
-      $request->session()->pull('frecuency');
-
-      if ($request->session()->has('zone')) {
-        echo $request->session()->get('mensaje'); // si existe imprime el valor de la variable mensaje
-      }
-
-    	$zone = $request->input('zone');
     	$pack = $request->input('pack');
     	$frecuency = $request->input('frecuency');
 
     	if ($pack == 'Small') {
-    		$maxPiece = 2;
-    	} elseif ($pack == 'Medium') {
-    		$maxPiece = 4;
-    	} elseif ($pack == 'Large') {
-    		$maxPiece = 8;
+        $request->session()->put('maxPiece', 2);
+      } elseif ($pack == 'Medium') {
+        $request->session()->put('maxPiece', 4);
+      } elseif ($pack == 'Large') {
+        $request->session()->put('maxPiece', 8);
     	}
 
-      $request->session()->push('pack', $pack);
-      $request->session()->push('frecuency', $frecuency);
-
+      $request->session()->put('pack', $pack);
+      $request->session()->put('frecuency', $frecuency);
+      
     	$products = Product::all();
-    	return view('pasos.choose')->with(compact('zone', 'pack', 'frecuency', 'products', 'maxPiece' ));
+    	return view('pasos.choose')->with(compact('products'));
+    }
+
+    public function store($id, $operation, request $request)
+    {
+      $product = Product::find($id);
+
+      if ($operation == 'suma') {
+        session()->push('cart', $id);
+      } else {
+        session()->forget('cart', $id);
+      }
+
+      $data = $request->session()->all();
+      dd($data);
+
+      $message = 'El Producto <strong>' .$product->name. '</strong> fue agregado al carro de compras.';
+
+      if ($request->ajax() ) {
+          return $data;
+      }
     }
 }

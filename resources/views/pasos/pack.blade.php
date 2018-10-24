@@ -23,8 +23,8 @@
     <div class="row">
       <div class="col-md-12 text-center mb-5">
         <div>
-          <button class="btn btn-success btn-fab btn-round">1</button>
-          <button class="btn btn-primary btn-fab btn-round">2</button>
+          <a href="{{ url('/zone') }}" class="btn btn-success btn-fab btn-round">1</a>
+          <a href="{{ url('/pack') }}" class="btn btn-primary btn-fab btn-round">2</a>
           <button class="btn btn-primary btn-fab btn-round" disabled>3</button>
           <button class="btn btn-primary btn-fab btn-round" disabled>4</button>
           <button class="btn btn-primary btn-fab btn-round" disabled>5</button>
@@ -40,7 +40,7 @@
           <div class="card-body">
             <h4 class="card-title">Resumen</h4>
 
-            <h5>Zona: <span>{{ $zone }}</span></h5>
+            <h5>Zona: <span>{{ Session::get('zone') }}</span></h5>
 
           </div>
         </div>
@@ -57,9 +57,9 @@
             <h3>$599</h3>
             <h3>3 Piezas</h3>
 
-            <form method="post" action="{{ url('/choose/') }}">
+            <form method="post" action="{{ url('/choose') }}">
               {{ csrf_field() }}
-              <input type="hidden" name="zone" value="{{ $zone }}">
+              <input type="hidden" name="zone" value="{{ Session::get('zone') }}">
               <input type="hidden" name="pack" value="Medium">
 
               <div class="form-check form-check-radio">

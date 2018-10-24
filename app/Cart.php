@@ -9,5 +9,5 @@ class Cart extends Model
 {
 	use SoftDeletes;
 	
-    //
+    return $this->hasMany(CartDetail::class);
 }

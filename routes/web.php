@@ -45,24 +45,18 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['aut
 
 });
 
-// Route::get('/administration', function(){
-// 	$products = App\Product::paginate(10);
-//   return view('administration.index')->with(compact('products')); // ver Listado de productos
-// });
-
 Auth::routes();
 Route::get('/products/{id}', 'ProductController@show'); // Controlador para todos los usuarios
 Route::post('/products/{id}', 'ProductController@getProduct'); // Controlador para todos los usuarios
 
-
 /* PRUEBA DE PASOS */
-Route::post('/cart', 'cartDetailController@store'); // Agrega un cartDetail 
 
-Route::get('/zone', 'ZoneController@index'); // Paso 1 - Selecciona Zona.
-Route::post('/pack', 'ZoneController@pack'); // Paso 2 - Selecciona Zona.
-Route::post('/choose', 'ZoneController@choose'); // Paso 2 - Selecciona Zona.
-
-
+Route::get('/zone', 'ZoneController@index'); 
+Route::get('/pack', 'ZoneController@packGet');
+Route::get('/choose', 'ZoneController@chooseGet');
+Route::post('/pack', 'ZoneController@pack');
+Route::post('/choose', 'ZoneController@choose');
+Route::post('/cart/{id}/{operation}', 'ZoneController@store'); // Agrega un cartDetail 
 
 Route::get('/', 'HomeController@index');
 Route::get('/test', 'HomeController@test');

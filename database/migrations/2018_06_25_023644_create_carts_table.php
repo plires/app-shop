@@ -18,7 +18,6 @@ class CreateCartsTable extends Migration
 
       $table->string('order_date')->nullable();
       $table->date('arrived_date')->nullable();
-      $table->date('status');
       //FK
       $table->Integer('status_id')->unsigned();
       $table->foreign('status_id')->references('id')->on('statuses');

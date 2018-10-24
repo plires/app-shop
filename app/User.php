@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\UserImage;
-use App\Cart;
 
 class User extends Authenticatable
 {
@@ -51,15 +50,13 @@ class User extends Authenticatable
       $userId = 123456;
     }
 
-
-
     $cart = $this->carts()->where('status', 'Active')->first();
 
     if ($cart) {
       return $cart;
     } else {
       $cart = new Cart();
-      $cart->status = 'Active';
+      $cart->status_id = 1;
       $cart->user_id = $userId;
       $cart->save();
 
