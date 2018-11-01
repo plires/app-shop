@@ -49,6 +49,10 @@
             <h5>Frecuencia de Entrega: <span>{{ Session::get('frecuency') }}</span></h5>
             <span id="countPieces"></span>
 
+            @foreach($cart as $car)
+              <p>{{ $car }}</p>
+            @endforeach
+
           </div>
         </div>
       </div>
@@ -110,23 +114,20 @@
 
   var maxPiece = '{{ Session::get('maxPiece') }}';
   var countPiece = 0;
-  var parcial = 0;
-  var resultado = 0;
 
   $("#message").hide();
 
   $('.suma').click(function(){
 
-    parcial = parseInt($('.numero').val());
+    var input = parseInt($(this).siblings('.numero').val());
 
-    if (countPiece == maxPiece) {
+    if (countPiece >= maxPiece || input >= maxPiece) {
       alert('llegaste al maximo');
     } else {
-      parcial++;
       countPiece++;
-      $('.numero').val(parcial);
+      $(this).siblings('.numero').val(input + 1);
+      console.log(countPiece);
     }
-
 
     var productId = $(this).parent().attr('data-id');
     var form = $('#form-cart');
@@ -145,13 +146,35 @@
 
   });
 
+  $('.resta').click(function(){
+
+    var input = parseInt($(this).siblings('.numero').val());
+    
+    if (countPiece == 0 || input == 0) {
+      //
+    } else {
+      countPiece--;
+      $(this).siblings('.numero').val(input - 1);
+      console.log(countPiece);
+    }
+
+    // var productId = $(this).parent().attr('data-id');
+    // var form = $('#form-cart');
+    // var action = form.attr('action').replace(':PRODUCT_ID', productId);
+    // var url = action + '/resta';
+
+    // var data = form.serialize();
+
+    // $.post(url, data, function(result){
+    //   $("#message").fadeIn();
+    //   $("#message").html(result);
+    //   setTimeout(function() {
+    //   $("#message").fadeOut(60000);
+    //   },60000);
+    // });
+
+  });
 
 </script>
 @endsection
-
-
-
-
-
-
 

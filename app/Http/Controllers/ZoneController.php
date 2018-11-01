@@ -11,9 +11,8 @@ class ZoneController extends Controller
 {
     public function index()
     {
-      // Si no existe el array cart, lo creamos
       if (!session()->has('cart')) {
-        session()->put('cart', []);
+        session()->put('cart', array());
       }
 
       return view('pasos.index');
@@ -36,7 +35,10 @@ class ZoneController extends Controller
     public function chooseGet()
     {
       $products = Product::all();
-      return view('pasos.choose')->with(compact('products'));
+      if (session()->has('cart')) {
+        $cart = session()->get('cart');
+      }
+      return view('pasos.choose')->with(compact('products', 'cart'));
     }
 
     public function choose(request $request)
@@ -65,12 +67,8 @@ class ZoneController extends Controller
 
       if ($operation == 'suma') {
         session()->push('cart', $id);
-      } else {
-        session()->forget('cart', $id);
       }
-
-      $data = $request->session()->all();
-      dd($data);
+      redirect('pasos.choose');
 
       $message = 'El Producto <strong>' .$product->name. '</strong> fue agregado al carro de compras.';
 
